@@ -26,9 +26,9 @@ class PathologyController extends Controller
         $id = Auth::user()->id;
         //$pathologies = Pathology::where('name','LIKE','q%')->get();
         $pathologies = Pathology::where(function($query) use($q){
-            $query->where('name','LIKE',"$q%")->where('user_id','=','1');
+            $query->where('name','LIKE',"%$q%")->where('user_id','=','1');
         })->orWhere(function($query) use($q,$id){
-            $query->where('name','LIKE',"$q%")->where('user_id','=',$id);
+            $query->where('name','LIKE',"%$q%")->where('user_id','=',$id);
         })->get();
 
         //$pathologies = Pathology::all();
