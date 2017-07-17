@@ -194,6 +194,7 @@ class VisitController extends Controller
     Session::flash('message','Success!!');
     Session::flash('text','New Consultation Created!!');
     Session::flash('type','success');
+    Session::flash('timer',1000);
 
     return redirect()->route('patients.show',$request->patient_id);
 }
